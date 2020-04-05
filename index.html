@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Interactive Hash Ring</title>
+        <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" /> 
+        <link rel="stylesheet" href="./node_modules/toastr/build/toastr.css" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div id="app" class="container" v-cloak>
+            <div class="row">
+                <div class="col-md-5">
+                    <canvas id="canvas" width="600" height="500" style="z-index:1;"></canvas>
+                    <canvas id="pointCanvas" width="600" height="500" style="z-index:0;"></canvas>
+                </div>
+                
+                <div class="col-md-7">
+                    <h3>Interactive Hash Ring</h3>
+                    
+                    <input class="form-control" id="add-server-textbox" name="add-server-textbox" 
+                        v-on:keyup.enter="addServer"
+                        v-model="serverInput" /> 
+                    <button class="btn btn-default" id="add-server-btn" 
+                        v-on:click="addServer" 
+                        v-bind:disabled="serverInput.trim().length === 0">Add Server</button>
+                    <br />
+                    <input class="form-control" id="add-key-textbox" name="add-key-textbox" 
+                        v-on:keyup.enter="addKey"
+                        v-model="keyInput" /> 
+                    <button class="btn btn-primary" 
+                        v-on:click="addKey" 
+                        v-bind:disabled="keyInput.trim().length === 0">Add Key</button>
+                    <br />
+                    <br />
+                    
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>Hashed Key (Decimal) <i class="fa fa-question-circle hoverable" aria-hidden="true" 
+                                        title="Hashed key (as decimal) is derived from the CRC32 hash function"></i></th>
+                                    <th>Angle on Hash Ring <i class="fa fa-question-circle hoverable" aria-hidden="true" 
+                                        title="Degree value is Hashed key (as decimal) / Int32.Max * 360"></i></th>
+                                    <th>Server</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="key in hashRing.keys" :key="key.value">
+                                    <td>{{ key.value }}</td>
+                                    <td>{{ key.hashedValueDecimal }}</td>
+                                    <td>{{ key.angleInDegrees }}&deg;</td>
+                                    <td>{{ key.server }}</td>
+                                    <td><i style="color:red;" class="fa fa-times hoverable" 
+                                        aria-hidden="true" v-on:click="removeKey(key)" title="Remove from hash ring"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <script src="./node_modules/vue/dist/vue.min.js"></script>
+        <script src="./node_modules/crc-32/crc32.js"></script>
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/toastr/build/toastr.min.js"></script>
+        <script src="./src/libUtils.js"></script>
+        <script src="./src/circle.js"></script>
+        <script src="./src/hashRing.js"></script>
+        <script src="./app.js"></script>
+    </body>
+</html>

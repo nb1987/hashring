@@ -1,0 +1,50 @@
+[v-cloak] { 
+    display:none; 
+}
+
+#app {
+    margin-top:4%;
+    max-width:100%;
+}
+
+#add-server-btn {
+    background-color:red;
+    color:white;
+}
+
+#add-server-textbox {
+    vertical-align:-3px;
+    display:inline-block; 
+    width:25%;
+}
+
+#add-key-textbox {
+    margin-top:10px;
+    vertical-align:-3px;
+    display:inline-block;
+    width:25%;
+}
+
+.hoverable {
+    cursor: pointer;
+    color: blue;
+}
+
+.key-class {
+    color: blue;
+}
+
+.server-class {
+    color: red;
+}
+
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: scroll;
+}

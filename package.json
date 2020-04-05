@@ -1,0 +1,25 @@
+{
+  "name": "hashring",
+  "version": "1.0.0",
+  "description": "A demo of consistent hashing",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "author": "Nick Bagnall",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "crc-32": "^1.2.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "toastr": "^2.1.4",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "jest": "^25.2.3"
+  }
+}
