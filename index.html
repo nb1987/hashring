@@ -52,7 +52,7 @@
                                     <td>{{ key.value }}</td>
                                     <td>{{ key.hashedValueDecimal }}</td>
                                     <td>{{ key.angleInDegrees }}&deg;</td>
-                                    <td>{{ key.server }}</td>
+                                    <td>{{ key.server || 'N/A' }}</td>
                                     <td><i style="color:red;" class="fa fa-times hoverable" 
                                         aria-hidden="true" v-on:click="removeKey(key)" title="Remove from hash ring"></i></td>
                                 </tr>
