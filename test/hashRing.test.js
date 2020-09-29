@@ -29,7 +29,7 @@ describe('hashRing', () => {
     });
 
     it('should sort servers lowest to highest by degree value', () => {
-        let servers = [
+        const servers = [
             new hashRingLib.Key('server', 'server2'), // 220.3
             new hashRingLib.Key('server', 'server1'), // 114.3
             new hashRingLib.Key('server', 'serverX'), // 81
